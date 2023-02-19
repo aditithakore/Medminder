@@ -85,11 +85,14 @@ public class set_reminder extends AppCompatActivity {
             Intent intent=new Intent(getApplicationContext(),dashboard.class);
             Intent frmdb=getIntent();
             String userid=frmdb.getStringExtra("user_id");
+
+
             Log.d("data_sr-db","data= "+userid);
-//            intent.putExtras(bundle_dash);
+           intent.putExtras(frmdb);
 //
 //            Log.d("data_rem","data= "+bundle_dash.getString("user_id"));
             startActivity(intent);
+            Log.d("data_dbfrmsr","data= "+userid);
            // super.onBackPressed();
         }
         else{

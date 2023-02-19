@@ -32,6 +32,7 @@ public class login extends AppCompatActivity {
     ProgressBar progress;
     CheckBox remember;
     JSONObject reader = null;
+    public static final String  SHARED_PREFS="sharedPrefs";
 
 
     @Override
@@ -44,34 +45,42 @@ public class login extends AppCompatActivity {
         buttonLogin=findViewById(R.id.buttonLogin);
         textviewSignup = findViewById(R.id.signUpText);
         progress = findViewById(R.id.progress);
-       remember=findViewById(R.id.remember);
+  //     remember=findViewById(R.id.remember);
 
 
+//SharedPreferences preferences=getSharedPreferences("checked",MODE_PRIVATE);
+//    String checkbox= preferences.getString("remember","");
+//if (checkbox.equals("true")){
+//
+//
+//}
+//else if(checkbox.equals("false")){
+//
+//}
+     //   remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+ //           @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor=preferences.edit();
+//                    editor.apply();
+//                    Toast.makeText(login.this,"Checked",Toast.LENGTH_SHORT).show();
+//
+//                }
+//                else{
+//                    SharedPreferences preferences= getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor= preferences.edit();
+//                    editor.putString("remember","false");
+//                    editor.apply();
+//                    Toast.makeText(login.this,"Unchecked",Toast.LENGTH_SHORT).show();
+//
+//
+//                }
+//
+//            }
+//        });
 
-
-        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor=preferences.edit();
-                    editor.apply();
-                    Toast.makeText(login.this,"Checked",Toast.LENGTH_SHORT).show();
-
-                }
-                else{
-                    SharedPreferences preferences= getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor= preferences.edit();
-                    editor.putString("remember","false");
-                    editor.apply();
-                    Toast.makeText(login.this,"Unchecked",Toast.LENGTH_SHORT).show();
-
-
-                }
-
-            }
-        });
-
+//        rememberMe();
 
 
 
@@ -142,7 +151,10 @@ public class login extends AppCompatActivity {
                                             bundle.putString("user_id", myMessage );
 //                                            AppointmentList appointmentList = new AppointmentList();
 //                                            appointmentList.setArguments(bundle);
-
+//                                            SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+//                                            SharedPreferences.Editor editor= sharedPreferences.edit();
+//                                            editor.putString("remember","true");
+//                                            editor.apply();
                                             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(getApplicationContext(), dashboard.class);
                                             intent.putExtras(bundle);
@@ -176,6 +188,16 @@ public class login extends AppCompatActivity {
         });
 
     }
+
+//    private void rememberMe() {
+//        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+//        String check=sharedPreferences.getString("remember","");
+//        if(check.equals(true)){
+//            Intent intent = new Intent(getApplicationContext(), dashboard.class);
+//            startActivity(intent);
+//
+//        }
+//    }
 
 
     public  String getUserId(){

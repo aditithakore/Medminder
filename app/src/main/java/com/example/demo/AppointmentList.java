@@ -23,7 +23,7 @@ public class AppointmentList extends Fragment {
 
     RecyclerView recyclerView;
     private ArrayList<AppointmentListRV> appointmentArrayList;
-    OkHttpClient client = new OkHttpClient();
+    //OkHttpClient client = new OkHttpClient();
 
     public String userId= "";
 
