@@ -24,6 +24,13 @@ public class viewList extends AppCompatActivity {
         String userid=frmdb.getStringExtra("user_id");
         Log.d("data_vl","data= "+userid);
 
+       Bundle bundle=new Bundle();
+       bundle =getIntent().getExtras();
+
+        Log.d("data_vlofbundle","data= "+bundle);
+
+        bundle.putString("user_id", userid);
+        AppointmentList.setArguments(bundle);
 
        // Log.d("data_VL","data= "+getIntent().getExtras());
         //Log.d("data_VL","data= "+bundle.getString("user_id"));

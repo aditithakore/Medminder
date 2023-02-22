@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,6 @@ public class AppointmentList extends Fragment {
     RecyclerView recyclerView;
     private ArrayList<AppointmentListRV> appointmentArrayList;
     //OkHttpClient client = new OkHttpClient();
-
     public String userId= "";
 
 
@@ -34,23 +34,28 @@ public class AppointmentList extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null) {
-            userId = getArguments().getString("user_id");
-        }
+//        if (getArguments() != null) {
+//            userId = getArguments().getString("user_id");
+//        }
 
 
 
 
-        Log.d("get user id frm VL_Act","data= "+getArguments());
-        Log.d("get user id frm VL_Act","data= "+userId);
+
+//        Log.d("get user id frm VL_Act","data= "+userId);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-//        Bundle bundle=getArguments().getString("user_id");
-//
+        Bundle bundle = getArguments();
+        if (bundle!= null) {
+            userId = bundle.getString("user_id");
+        }
+        Log.d("get user id frm VL_Act","data= "+userId);
+
+
 //        Log.d("data","data= "+getIntent().getExtras());
 //        Log.d("data","data= "+bundle.getString("user_id"));
 

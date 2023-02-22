@@ -78,8 +78,6 @@ public class appointment extends AppCompatActivity {
                 apTime= String.valueOf(timeselect.getText());
                 apDate= String.valueOf(date.getText());
 
-
-
 //
 //                if(TextUtils.isEmpty(textInputEditTextUsername.getText().toString())){
 //

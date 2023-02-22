@@ -3,6 +3,7 @@ package com.example.demo;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 
@@ -14,6 +15,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -22,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -29,6 +33,7 @@ import android.widget.Toast;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
@@ -43,11 +48,13 @@ public class medicine extends AppCompatActivity {
     int i =1;
    EditText timeselect,medname;
    TextView layoutTimeSelect;
-   Button addButton;
+   Button addButton,dose1,dose2,dose3, dose4,dose5;
     TextView startDate,endDate;
     Calendar calendar=Calendar.getInstance();
     CheckBox monday,tuesday,wednesday,thursday,friday,saturday,sunday,everyday;
     static boolean mon=false,tue=false,wed=false,thurs=false,fri=false,sat=false,sun=false;
+    Spinner dosespinner;
+    int[] dosage = {0,1,2,3,4,5};
 
 
     @Override
@@ -55,8 +62,122 @@ public class medicine extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
 
-        medname=findViewById(R.id.edit_med_name);
+        dose1=findViewById(R.id.dose1);
+        dose2=findViewById(R.id.dose2);
+        dose3=findViewById(R.id.dose3);
+        dose4=findViewById(R.id.dose4);
+        dose5=findViewById(R.id.dose5);
 
+        medname=findViewById(R.id.edit_med_name);
+        dosespinner=findViewById(R.id.spinner_dose_units);
+        CardView cardView= findViewById(R.id.medicinecard0);
+        CardView cardView1= findViewById(R.id.medicinecard1);
+        CardView cardView2= findViewById(R.id.medicinecard2);
+        CardView cardView3= findViewById(R.id.medicinecard3);
+        CardView cardView4= findViewById(R.id.medicinecard4);
+
+        dose1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                cardView.setVisibility(View.VISIBLE);
+                cardView1.setVisibility(View.INVISIBLE);
+                cardView2.setVisibility(View.INVISIBLE);
+                cardView3.setVisibility(View.INVISIBLE);
+                cardView4.setVisibility(View.INVISIBLE);
+            }
+        });
+        dose2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                cardView.setVisibility(View.VISIBLE);
+                cardView1.setVisibility(View.VISIBLE);
+                cardView2.setVisibility(View.INVISIBLE);
+                cardView3.setVisibility(View.INVISIBLE);
+                cardView4.setVisibility(View.INVISIBLE);
+            }
+        });
+        dose3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                cardView.setVisibility(View.VISIBLE);
+                cardView1.setVisibility(View.VISIBLE);
+                cardView2.setVisibility(View.VISIBLE);
+                cardView3.setVisibility(View.INVISIBLE);
+                cardView4.setVisibility(View.INVISIBLE);
+            }
+        });
+        dose4.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                cardView.setVisibility(View.VISIBLE);
+                cardView1.setVisibility(View.VISIBLE);
+                cardView2.setVisibility(View.VISIBLE);
+                cardView3.setVisibility(View.VISIBLE);
+                cardView4.setVisibility(View.INVISIBLE);
+            }
+        });
+        dose5.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                cardView.setVisibility(View.VISIBLE);
+                cardView1.setVisibility(View.VISIBLE);
+                cardView2.setVisibility(View.VISIBLE);
+                cardView3.setVisibility(View.VISIBLE);
+                cardView4.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
+        ArrayAdapter   arrayAdapter = new ArrayAdapter(medicine.this, com.google.android.material.R.layout.support_simple_spinner_dropdown_item, Collections.singletonList(dosage));
+
+//        dosespinner.setAdapter(arrayAdapter);
+//        dosespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+//               int position=pos;
+//
+//            switch (position){
+//                case 0:
+//                    break;
+//                case 1:
+//                    cardView.setVisibility(View.VISIBLE);
+//                    break;
+//                case 2:
+//                    cardView.setVisibility(View.VISIBLE);
+//                    cardView1.setVisibility(View.VISIBLE);
+//                    break;
+//                case 3:
+//                    cardView.setVisibility(View.VISIBLE);
+//                    cardView1.setVisibility(View.VISIBLE);
+//                    cardView2.setVisibility(View.VISIBLE);
+//                    break;
+//                case 4:
+//                    cardView.setVisibility(View.VISIBLE);
+//                    cardView1.setVisibility(View.VISIBLE);
+//                    cardView2.setVisibility(View.VISIBLE);
+//                    cardView3.setVisibility(View.VISIBLE);
+//                    break;
+//                case 5:
+//                    cardView.setVisibility(View.VISIBLE);
+//                    cardView1.setVisibility(View.VISIBLE);
+//                    cardView2.setVisibility(View.VISIBLE);
+//                    cardView3.setVisibility(View.VISIBLE);
+//                    cardView4.setVisibility(View.VISIBLE);
+//                    break;
+//            }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
 
         save=findViewById(R.id.imageViewSave);
         save.setOnClickListener(new View.OnClickListener() {
@@ -66,11 +187,10 @@ public class medicine extends AppCompatActivity {
                 med_name=String.valueOf(medname.getText());
                 med_startDate=String.valueOf(startDate.getText());
                 med_endDate=String.valueOf(endDate.getText());
+                time=String.valueOf(timeselect.getText());
                 boolean[] days={mon,tue,wed,thurs,fri,sat,sun};
                 for (int j=0;j<=i;j++) {
-                    int s1=R.id.medicine_time+i;
-                    EditText editText=findViewById(s1);
-                    Toast.makeText(getApplicationContext()," "+editText.getText()+" "+i,Toast.LENGTH_SHORT).show();
+
                 }
 
             }
@@ -251,26 +371,25 @@ public class medicine extends AppCompatActivity {
 
 
         parentLinearLayout=(LinearLayout) findViewById(R.id.containerLayout);
-addButton=findViewById(R.id.add_field_button);
-
-addButton.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        LayoutInflater inflater=(LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View rowView=inflater.inflate(R.layout.medcard_view_layout, null);
-
-        rowView.findViewById(R.id.medicine_time).setId(R.id.medicine_time+i);
-        Toast.makeText(getApplicationContext(),"tost of i "+ i,Toast.LENGTH_SHORT).show();
-
-
-        // Add the new row before the add field button.
-        parentLinearLayout.addView(rowView, parentLinearLayout.getChildCount() - 1);
-
-        Toast.makeText(getApplicationContext(),"" +findViewById(R.id.medicine_time).getId(),Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(),"" +findViewById(R.id.medicine_time+i).getId(),Toast.LENGTH_SHORT).show();
-
-        i=i+1;
-}});
+//addButton=findViewById(R.id.add_field_button);
+//addButton.setOnClickListener(new View.OnClickListener() {
+//    @Override
+//    public void onClick(View v) {
+//        LayoutInflater inflater=(LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        final View rowView=inflater.inflate(R.layout.medcard_view_layout, null);
+//
+//        rowView.findViewById(R.id.medicine_time).setId(R.id.medicine_time+i);
+//        Toast.makeText(getApplicationContext(),"tost of i "+ i,Toast.LENGTH_SHORT).show();
+//
+//
+//        // Add the new row before the add field button.
+//        parentLinearLayout.addView(rowView, parentLinearLayout.getChildCount() - 1);
+//
+//        Toast.makeText(getApplicationContext(),"" +findViewById(R.id.medicine_time).getId(),Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),"" +findViewById(R.id.medicine_time+i).getId(),Toast.LENGTH_SHORT).show();
+//
+//        i=i+1;
+//}});
 
 
 
