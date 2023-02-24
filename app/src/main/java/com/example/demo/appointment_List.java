@@ -12,13 +12,8 @@ import java.util.List;
 public class appointment_List extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    String url="https://ammoniac-initial.000webhostapp.com/addappointment.php"
-    List<ModelClass> imagelist;
-    ModelClass modelClass;
-    LinearLayoutManager linearLayoutManager;
-    viewDataAdapter adapter;
-    String mEmail;
-    ProgressDialog mProgressDialog;
+    String url="https://ammoniac-initial.000webhostapp.com/addappointment.php";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
