@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_addmedicine_new.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_appointment.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_dashboard.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_main2.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_medicine.xml" value="0.205859375" />
+        <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_medicine.xml" value="0.2" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_set_reminder.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/fragment_addmedicine.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/fragment_appointment.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/fragment_appointment_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/medcard_view_layout.xml" value="0.4" />
         <entry key="..\:/Users/Aditi/demo/app/src/main/res/drawable/background_splashscreen.xml" value="0.121" />

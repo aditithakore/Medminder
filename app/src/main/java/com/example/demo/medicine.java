@@ -2,6 +2,7 @@ package com.example.demo;
 
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.cardview.widget.CardView;
@@ -10,8 +11,11 @@ import androidx.core.widget.NestedScrollView;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +34,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
@@ -56,17 +63,26 @@ public class medicine extends AppCompatActivity {
     Spinner dosespinner;
     int[] dosage = {0,1,2,3,4,5};
 
+    EditText med1,med2,med3,med4,med5;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
-
+        Log.d("data_addMed","Data= "+getIntent().getStringExtra("user_id"));
         dose1=findViewById(R.id.dose1);
         dose2=findViewById(R.id.dose2);
         dose3=findViewById(R.id.dose3);
         dose4=findViewById(R.id.dose4);
         dose5=findViewById(R.id.dose5);
+
+        med1=findViewById(R.id.medicine_time0);
+        med2=findViewById(R.id.medicine_time1);
+        med3=findViewById(R.id.medicine_time2);
+        med4=findViewById(R.id.medicine_time3);
+        med5=findViewById(R.id.medicine_time4);
 
         medname=findViewById(R.id.edit_med_name);
         dosespinner=findViewById(R.id.spinner_dose_units);
@@ -134,7 +150,7 @@ public class medicine extends AppCompatActivity {
 
 
 
-        ArrayAdapter   arrayAdapter = new ArrayAdapter(medicine.this, com.google.android.material.R.layout.support_simple_spinner_dropdown_item, Collections.singletonList(dosage));
+//        ArrayAdapter   arrayAdapter = new ArrayAdapter(medicine.this, com.google.android.material.R.layout.support_simple_spinner_dropdown_item, Collections.singletonList(dosage));
 
 //        dosespinner.setAdapter(arrayAdapter);
 //        dosespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -183,16 +199,98 @@ public class medicine extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String med_name,med_startDate,med_endDate,time;
-                med_name=String.valueOf(medname.getText());
-                med_startDate=String.valueOf(startDate.getText());
-                med_endDate=String.valueOf(endDate.getText());
-                time=String.valueOf(timeselect.getText());
-                boolean[] days={mon,tue,wed,thurs,fri,sat,sun};
-                for (int j=0;j<=i;j++) {
+                String med_name, start_date, end_date, user_id = null;
+                med_name = String.valueOf(medname.getText());
+                start_date = String.valueOf(startDate.getText());
+                end_date = String.valueOf(endDate.getText());
+
+                //this is for time
+                ArrayList<String> time = new ArrayList<String>();
+
+                if(!med1.getText().toString().isEmpty()){
+                    time.add(med1.getText().toString());
+                }
+                if(!med2.getText().toString().isEmpty()){
+                    time.add(med2.getText().toString());
+                }
+                if(!med3.getText().toString().isEmpty()){
+                    time.add(med3.getText().toString());
+                }
+                if(!med4.getText().toString().isEmpty()){
+                    time.add(med4.getText().toString());
+                }
+                if(!med5.getText().toString().isEmpty()){
+                    time.add(med5.getText().toString());
+                }
+
+                Toast.makeText(getApplicationContext(), "time : " + TextUtils.join(",", time), Toast.LENGTH_SHORT).show();
+
+
+                //this is for days
+                ArrayList<String> days = new ArrayList<String>();
+                //String[] days=new String[7];
+                if (mon == true) {
+
+                    days.add("monday");
+                }
+                if (tue == true) {
+                    days.add("tuesday");
+                }
+                if (wed == true) {
+                    days.add("wednesday");
+                }
+                if (thurs == true) {
+                    days.add("thursday");
+                }
+                if (fri == true) {
+                    days.add("friday");
+                }
+                if (sat == true) {
+                    days.add("saturday");
+                }
+                if (sun == true) {
+                    days.add("sunday");
+                }
+
+               // String[] Days = (String[]) days.toArray();
+
+                Toast.makeText(getApplicationContext(), "days selected: " + TextUtils.join(",", days), Toast.LENGTH_SHORT).show();
+
+
+                String[] field = new String[6];
+                field[0] = "med_name";
+                field[1] = "start_date";
+                field[2] = "end_date";
+                field[3] = "days";
+                field[4] = "time";
+                field[5] = "user_id";
+
+                //Creating array for data
+                String[] data = new String[6];
+                data[0] = med_name;
+                data[1] = start_date;
+                data[2] = end_date;
+                data[3] = TextUtils.join(",", days);
+                data[4] = TextUtils.join(",", time);
+                data[5] = getIntent().getStringExtra("user_id");
+
+                PutData putData = new PutData("https://ammoniac-initial.000webhostapp.com/addmedicine.php", "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        String result = putData.getResult();
+                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                        Log.d("data_medicine", "data= " + result);
+                        Intent intent = new Intent(getApplicationContext(), dashboard.class);
+//                        intent.putExtras(bundle);
+                        startActivity(intent);
+
+
+
+                    }
 
                 }
 
+                days.clear();
             }
         });
 
@@ -535,6 +633,15 @@ timeselect=findViewById(R.id.medicine_time0);
 
     }
 
+    public void methodOnClick(@NonNull View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId()) {
+
+
+        }
+    }
+}
+
 
 
 //    private void showTimePicker() {
@@ -567,13 +674,10 @@ timeselect=findViewById(R.id.medicine_time0);
 
 
 
-   public void methodOnClick(View view) {
-       boolean checked = ((CheckBox) view).isChecked();
-       switch (view.getId()) {
 
 
-       }
-   }
 
-    }
+
+
+
 

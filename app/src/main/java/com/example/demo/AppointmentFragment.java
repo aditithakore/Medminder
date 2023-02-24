@@ -26,23 +26,23 @@ public class AppointmentFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View rootview= inflater.inflate(R.layout.fragment_appointment,container,false);
-        imageview=(ImageView)rootview.findViewById(R.id.add_btapp);
-        imageview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getActivity().getApplicationContext(),appointment.class);
-                try {
-                    startActivity(intent);
-                }
-                catch (NullPointerException e){
-
-
-                }
-
-            }
-        });
-        return rootview;
-        //return inflater.inflate(R.layout.fragment_appointment, container, false);
+//        View rootview= inflater.inflate(R.layout.fragment_appointment,container,false);
+//        imageview=(ImageView)rootview.findViewById(R.id.add_btapp);
+//        imageview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getActivity().getApplicationContext(),appointment.class);
+//                try {
+//                    startActivity(intent);
+//                }
+//                catch (NullPointerException e){
+//
+//
+//                }
+//
+//            }
+//        });
+      //  return rootview;
+        return inflater.inflate(R.layout.fragment_appointment, container, false);
     }
 }

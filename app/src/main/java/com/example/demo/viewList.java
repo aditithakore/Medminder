@@ -29,13 +29,10 @@ public class viewList extends AppCompatActivity {
 
         Log.d("data_vlofbundle","data= "+bundle);
 
-        bundle.putString("user_id", userid);
-        AppointmentList.setArguments(bundle);
-
+    //    bundle.putString("user_id", userid);
+     //   AppointmentList.setArguments(bundle);
        // Log.d("data_VL","data= "+getIntent().getExtras());
         //Log.d("data_VL","data= "+bundle.getString("user_id"));
-
-
 //        Bundle bundle_frag = new Bundle();
 //        bundle.putString("userId", bundle.getString("user_id"));
 // set Fragmentclass Arguments
