@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="rv_apptime" type="id" />
+    <item name="rv_apptime" type="id" />
+    <item name="rv_apptime1" type="id">rv_apptime</item>
+</resources>

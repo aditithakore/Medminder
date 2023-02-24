@@ -60,8 +60,7 @@ public class medicine extends AppCompatActivity {
     Calendar calendar=Calendar.getInstance();
     CheckBox monday,tuesday,wednesday,thursday,friday,saturday,sunday,everyday;
     static boolean mon=false,tue=false,wed=false,thurs=false,fri=false,sat=false,sun=false;
-    Spinner dosespinner;
-    int[] dosage = {0,1,2,3,4,5};
+
 
     EditText med1,med2,med3,med4,med5;
 
@@ -72,20 +71,18 @@ public class medicine extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
         Log.d("data_addMed","Data= "+getIntent().getStringExtra("user_id"));
+        timeselect=findViewById(R.id.medicine_time0);
         dose1=findViewById(R.id.dose1);
         dose2=findViewById(R.id.dose2);
         dose3=findViewById(R.id.dose3);
         dose4=findViewById(R.id.dose4);
         dose5=findViewById(R.id.dose5);
-
         med1=findViewById(R.id.medicine_time0);
         med2=findViewById(R.id.medicine_time1);
         med3=findViewById(R.id.medicine_time2);
         med4=findViewById(R.id.medicine_time3);
         med5=findViewById(R.id.medicine_time4);
-
         medname=findViewById(R.id.edit_med_name);
-        dosespinner=findViewById(R.id.spinner_dose_units);
         CardView cardView= findViewById(R.id.medicinecard0);
         CardView cardView1= findViewById(R.id.medicinecard1);
         CardView cardView2= findViewById(R.id.medicinecard2);
@@ -468,7 +465,7 @@ public class medicine extends AppCompatActivity {
 
 
 
-        parentLinearLayout=(LinearLayout) findViewById(R.id.containerLayout);
+        //parentLinearLayout=(LinearLayout) findViewById(R.id.containerLayout);
 //addButton=findViewById(R.id.add_field_button);
 //addButton.setOnClickListener(new View.OnClickListener() {
 //    @Override
@@ -491,7 +488,6 @@ public class medicine extends AppCompatActivity {
 
 
 
-timeselect=findViewById(R.id.medicine_time0);
 
 
 //        NumberPicker numberPicker = findViewById(R.id.tv_dose_quantity);
@@ -642,8 +638,6 @@ timeselect=findViewById(R.id.medicine_time0);
     }
 }
 
-
-
 //    private void showTimePicker() {
 //        Calendar mCurrentTime = Calendar.getInstance();
 //        hour = mCurrentTime.get(Calendar.HOUR_OF_DAY);
@@ -669,15 +663,3 @@ timeselect=findViewById(R.id.medicine_time0);
 //                    public void onDateSet(int selectedMonth, int selectedYear) { // on date set }
 //                    }, today.get(Calendar.YEAR), today.get(Calendar.MONTH));
 //}
-
-
-
-
-
-
-
-
-
-
-
-

@@ -44,38 +44,6 @@
     <!--        android:id="@+id/viewpager2"/>-->
 
 
-    <!--    <soup.neumorphism.NeumorphButton-->
-<!--        style="@style/Widget.Neumorph.Button"-->
-<!--        android:layout_width="193dp"-->
-<!--        android:layout_height="68dp"-->
-<!--        android:text="Add medicine"-->
-<!--        android:textColor="@color/deep_sapphire"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.495"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.402"-->
-<!--        app:neumorph_shadowColorLight="@color/oyster_bay"-->
-<!--        app:neumorph_shapeType="flat"-->
-<!--        app:neumorph_strokeColor="@color/oyster_bay" />-->
-
-<!--    <soup.neumorphism.NeumorphButton-->
-<!--        style="@style/Widget.Neumorph.Button"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Add Appointment"-->
-<!--        android:textColor="@color/deep_sapphire"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.497"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.6"-->
-<!--        app:neumorph_shadowColorLight="@color/oyster_bay"-->
-<!--        app:neumorph_shapeType="flat"-->
-<!--        app:neumorph_strokeColor="@color/oyster_bay" />-->
-
     <Button
         android:id="@+id/btn_med"
         android:layout_width="170dp"

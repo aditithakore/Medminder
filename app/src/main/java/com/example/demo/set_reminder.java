@@ -142,8 +142,6 @@ public class set_reminder extends AppCompatActivity {
 //            }
 //        });
 
-
-
     }
 
     int counter=0;
@@ -151,9 +149,6 @@ public class set_reminder extends AppCompatActivity {
     public void onBackPressed() {
         counter++;
         if(counter==1){
-//
-//            Bundle bundle_dash= new Bundle();
-//            bundle_dash.putString("user_id", user_dash_reminder);
             Intent intent=new Intent(getApplicationContext(),dashboard.class);
             Intent frmdb=getIntent();
             String userid=frmdb.getStringExtra("user_id");
@@ -161,11 +156,9 @@ public class set_reminder extends AppCompatActivity {
 
             Log.d("data_sr-db","data= "+userid);
            intent.putExtras(frmdb);
-//
-//            Log.d("data_rem","data= "+bundle_dash.getString("user_id"));
             startActivity(intent);
             Log.d("data_dbfrmsr","data= "+userid);
-           // super.onBackPressed();
+
         }
         else{
             super.onBackPressed();

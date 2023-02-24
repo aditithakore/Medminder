@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -36,11 +37,11 @@ public class appointment extends AppCompatActivity {
 
     private int hour, minute;
     private int year,month,day;
-    private OkHttpClient client;
-    private Response response;
-    private RequestBody requestBody;
-    private String strJson,apiUrl="";
-    private Request request;
+//    private OkHttpClient client;
+//    private Response response;
+//    private RequestBody requestBody;
+//    private String strJson,apiUrl="";
+//    private Request request;
 
     EditText docname,docCon;
     TextView timeselect,date;
@@ -50,7 +51,7 @@ public class appointment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment);
-
+        Log.d("data_addAppointment","Data= "+getIntent().getStringExtra("user_id"));
 
         docname=findViewById(R.id.doc_name);
         docCon=findViewById(R.id.doc_con);
@@ -63,9 +64,7 @@ public class appointment extends AppCompatActivity {
         //to underline the texview
         date.setPaintFlags(date.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-//        client = new OkHttpClient();
-//        new GetUserDataRequest().execute();
-//
+
 
 
         imageView=findViewById(R.id.save);
@@ -77,17 +76,6 @@ public class appointment extends AppCompatActivity {
                 drCon = String.valueOf(docCon.getText());
                 apTime= String.valueOf(timeselect.getText());
                 apDate= String.valueOf(date.getText());
-
-//
-//                if(TextUtils.isEmpty(textInputEditTextUsername.getText().toString())){
-//
-//                    textInputEditTextUsername.setError("UserName is compulsory");
-//                }
-//
-//                if(TextUtils.isEmpty(textInputEditTextPassword.getText().toString())){
-//
-//                    textInputEditTextPassword.setError("Password is compulsory");
-//                }
 
                 if (!drname.equals("") && !drCon.equals("") && !apTime.equals("") && !apDate.equals("")) {
 
@@ -112,7 +100,7 @@ public class appointment extends AppCompatActivity {
                             data[1] = drCon;
                             data[2] =apTime;
                             data[3] = apDate;
-                            data[4]=user_id;
+                            data[4]=getIntent().getStringExtra("user_id");
 
                             PutData putData = new PutData("https://ammoniac-initial.000webhostapp.com/addappointment.php","POST", field, data);
                             if (putData.startPut()) {
@@ -129,11 +117,6 @@ public class appointment extends AppCompatActivity {
 
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                     }
-
-
-
-                                 //   progress.setVisibility(View.GONE);
-                                    //  Log.i("PutData", result);
                                 }
                             }
                             //End Write and Read data with URL
@@ -171,9 +154,7 @@ public class appointment extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
-
-    }
+}
 
 
     private void showTimePicker() {

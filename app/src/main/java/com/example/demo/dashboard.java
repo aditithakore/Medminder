@@ -47,13 +47,8 @@ public class dashboard extends AppCompatActivity {
       imageview1.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-//              user_dash_viewList=bundle.getString("user_id");
-//              Bundle bundle_dash= new Bundle();
-//              bundle_dash.putString("user_id", user_dash_viewList);
-
               Intent intent1=new Intent(getApplicationContext(),set_reminder.class);
               intent1.putExtras(frmLogin);
-            //   intent1.putExtras(bundle_dash);
               startActivity(intent1);
               Log.d("data_imgviwe_sr","data= "+userid);
 
@@ -73,12 +68,8 @@ public class dashboard extends AppCompatActivity {
       imageView3.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-//              user_dash_viewList=bundle.getString("user_id");
-//              Bundle bundle_dash= new Bundle();
-//              bundle_dash.putString("user_id", user_dash_viewList);
               Intent intent3=new Intent(getApplicationContext(),viewList.class);
               intent3.putExtras(frmLogin);
-//              intent3.putExtras(bundle_dash);
               startActivity(intent3);
               Log.d("data_imgview_vl","data= "+userid);
           }
