@@ -101,7 +101,7 @@ public class medicineCardList extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
-                map.put("user_id",userid);
+                map.put("userid",userid);
                 //Log.d("");
                 return map;
             }
