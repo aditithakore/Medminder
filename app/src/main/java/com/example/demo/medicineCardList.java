@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,7 +17,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,14 +26,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class appointment_List extends AppCompatActivity {
+public class medicineCardList extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    String url = "https://ammoniac-initial.000webhostapp.com/getappointment.php";
-    List<ModelClass> imagelist;
-    ModelClass modelClass;
+    String url = "https://ammoniac-initial.000webhostapp.com/getmedicine.php";
+    List<MedModelClass> imagelistmed;
+    MedModelClass modelClass;
     LinearLayoutManager linearLayoutManager;
-    vlAppointmentadapter adapter;
+    vlMedicineadapter adapter;
     ProgressDialog mProgressDialog;
     String userid;
 
@@ -44,28 +41,25 @@ public class appointment_List extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_appointment_list);
+        setContentView(R.layout.activity_medicine_card_list);
         Intent frmVl = getIntent();
         userid = frmVl.getStringExtra("user_id");
-        Log.d("data_AppL", "data= " + userid);
+        Log.d("data_MedL", "data= " + userid);
 
-        recyclerView = findViewById(R.id.rv_appList);
+        recyclerView = findViewById(R.id.rv_medList);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        imagelist = new ArrayList<>();
+        imagelistmed = new ArrayList<>();
 
-        adapter = new vlAppointmentadapter(this, imagelist);
+        adapter = new vlMedicineadapter(this, imagelistmed);
         recyclerView.setAdapter(adapter);
-
-
-
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 mProgressDialog.dismiss();
 
-                imagelist.clear();
+                imagelistmed.clear();
                 try {
                     Log.i("tagconvertstr", "["+response+"]");
 
@@ -80,14 +74,15 @@ public class appointment_List extends AppCompatActivity {
                             JSONObject object = jsonArray.getJSONObject(i);
 
                             String id=object.getString("id");
-                            String docname = object.getString("docname");
-                            String doccon = object.getString("docCon");
-                            String date = object.getString("apTime");
-                            String time = object.getString("apDate");
-                            String user_id = object.getString("user_id");
+                            String medname = object.getString("med_name");
+                            String startdate = object.getString("start_date");
+                            String enddate = object.getString("end_date");
+                            String days = object.getString("days");
+                            String time = object.getString("time");
+                            String user_id = object.getString("userid");
 
-                            modelClass = new ModelClass(id,docname, doccon, date, time,user_id);
-                            imagelist.add(modelClass);
+                            modelClass = new MedModelClass(id,medname,startdate,enddate,days,time,user_id);
+                            imagelistmed.add(modelClass);
                             adapter.notifyDataSetChanged();
                         }
                     }
@@ -96,10 +91,10 @@ public class appointment_List extends AppCompatActivity {
                 }
             }
         }
-        , new Response.ErrorListener() {
+                , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(appointment_List.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(medicineCardList.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         })
         {
@@ -112,7 +107,7 @@ public class appointment_List extends AppCompatActivity {
             }
         };
 
-        mProgressDialog = new ProgressDialog(appointment_List.this);
+        mProgressDialog = new ProgressDialog(medicineCardList.this);
         mProgressDialog.setTitle("Please Wait!!");
         //mProgressDialog.setMax(100);
         mProgressDialog.setMessage("Fetching....");
@@ -120,7 +115,9 @@ public class appointment_List extends AppCompatActivity {
         mProgressDialog.show();
         mProgressDialog.setCancelable(false);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(appointment_List.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(medicineCardList.this);
         requestQueue.add(request);
-            }
-        }
+
+
+    }
+}

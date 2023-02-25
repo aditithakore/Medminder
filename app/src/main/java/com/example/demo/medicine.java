@@ -70,7 +70,11 @@ public class medicine extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
-        Log.d("data_addMed","Data= "+getIntent().getStringExtra("user_id"));
+
+
+        Intent frmSr=getIntent();
+        String userid=frmSr.getStringExtra("user_id");
+        Log.d("data_addMed","Data= "+userid);
         timeselect=findViewById(R.id.medicine_time0);
         dose1=findViewById(R.id.dose1);
         dose2=findViewById(R.id.dose2);
@@ -277,10 +281,14 @@ public class medicine extends AppCompatActivity {
                         String result = putData.getResult();
                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                         Log.d("data_medicine", "data= " + result);
-                        Intent intent = new Intent(getApplicationContext(), dashboard.class);
+                        Intent intent = new Intent(getApplicationContext(), set_reminder.class);
+//                        Intent frmdb=getIntent();
+//                        String userid=frmdb.getStringExtra("user_id");
+//                        Log.d("data_sr-db","data= "+userid);
+                        intent.putExtras(frmSr);
 //                        intent.putExtras(bundle);
                         startActivity(intent);
-
+                        Log.d("data_medtosr","data= "+userid);
 
 
                     }

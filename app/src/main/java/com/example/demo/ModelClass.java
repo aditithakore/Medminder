@@ -1,15 +1,17 @@
 package com.example.demo;
 
 public class ModelClass {
-    private String docname, doccon, date, time;
+    private String id,docname, doccon, date, time,userid;
     public ModelClass(){
     }
 
-    public ModelClass(String docname, String doccon, String date, String time) {
+    public ModelClass(String id,String docname, String doccon, String date, String time,String userid) {
+        this.id=id;
         this.docname = docname;
         this.doccon = doccon;
         this.date = date;
         this.time = time;
+        this.userid = userid;
     }
 
     public String getDocname() {

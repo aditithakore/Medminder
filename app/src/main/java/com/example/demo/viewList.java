@@ -17,7 +17,7 @@ public class viewList extends AppCompatActivity {
     Button btnVlMed,btnVlApp;
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
-    private viewListFragmentAdapter viewListFragmentAdapter;
+    //private viewListFragmentAdapter viewListFragmentAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,7 @@ public class viewList extends AppCompatActivity {
         btnVlMed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),appointment_List.class);
+                Intent intent=new Intent(getApplicationContext(),medicineCardList.class);
                 intent.putExtra("user_id",userid);
                 startActivity(intent);
                 Log.d("dataaa_inVlMed","data= "+userid);

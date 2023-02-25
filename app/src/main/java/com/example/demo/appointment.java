@@ -51,7 +51,11 @@ public class appointment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment);
-        Log.d("data_addAppointment","Data= "+getIntent().getStringExtra("user_id"));
+  //      Log.d("data_addAppointment","Data= "+getIntent().getStringExtra("user_id"));
+
+        Intent frmSr=getIntent();
+        String userid=frmSr.getStringExtra("user_id");
+        Log.d("data_addApp","Data= "+userid);
 
         docname=findViewById(R.id.doc_name);
         docCon=findViewById(R.id.doc_con);
@@ -108,7 +112,9 @@ public class appointment extends AppCompatActivity {
                                     String result = putData.getResult();
                                     if (result.equals("Appointment added Sucessfully")) {
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), dashboard.class);
+                                        Intent intent = new Intent(getApplicationContext(), set_reminder.class);
+                                        intent.putExtras(frmSr);
+                                        Log.d("data_addAPPPP","Data= "+userid);
                                         startActivity(intent);
                                         finish();
                                     }

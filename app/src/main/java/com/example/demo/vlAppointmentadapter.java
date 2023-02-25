@@ -26,17 +26,25 @@ public class vlAppointmentadapter extends RecyclerView.Adapter<ImageViewHolderVi
     @NonNull
     @Override
     public ImageViewHolderViewData onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.app, parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.appointmentcard, parent,false);
+        return new ImageViewHolderViewData(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolderViewData holder, int position) {
 
+        final ModelClass temp = imagelist.get(position);
+
+        holder.docname.setText(temp.getDocname());
+        holder.doccon.setText(temp.getDoccon());
+        holder.time.setText(temp.getTime());
+        holder.date.setText(temp.getDate());
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return imagelist.size();
     }
 }
 
@@ -44,12 +52,18 @@ public class vlAppointmentadapter extends RecyclerView.Adapter<ImageViewHolderVi
 class ImageViewHolderViewData extends RecyclerView.ViewHolder {
 
     TextView docname, doccon, time, date;
-    ImageView bkPic, edit, delete;
+    ImageView cal, edit, delete;
     RelativeLayout rv_relativeLayout;
 
     public ImageViewHolderViewData(@NonNull View itemView) {
         super(itemView);
-        docname=itemView.findViewById(R.id.rv_);
+        docname=itemView.findViewById(R.id.rv_docname);
+        doccon=itemView.findViewById(R.id.rv_doccon);
+        time=itemView.findViewById(R.id.rvapptime);
+        date=itemView.findViewById(R.id.rvappdate);
+        cal=itemView.findViewById(R.id.imaeCal);
+        edit=itemView.findViewById(R.id.edit);
+        delete=itemView.findViewById(R.id.remove);
 
 
 
