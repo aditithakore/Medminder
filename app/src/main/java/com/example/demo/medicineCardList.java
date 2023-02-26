@@ -31,7 +31,7 @@ public class medicineCardList extends AppCompatActivity {
     RecyclerView recyclerView;
     String url = "https://ammoniac-initial.000webhostapp.com/getmedicine.php";
     List<MedModelClass> imagelistmed;
-    MedModelClass modelClass;
+    MedModelClass medmodelClass;
     LinearLayoutManager linearLayoutManager;
     vlMedicineadapter adapter;
     ProgressDialog mProgressDialog;
@@ -81,8 +81,8 @@ public class medicineCardList extends AppCompatActivity {
                             String time = object.getString("time");
                             String user_id = object.getString("userid");
 
-                            modelClass = new MedModelClass(id,medname,startdate,enddate,days,time,user_id);
-                            imagelistmed.add(modelClass);
+                            medmodelClass = new MedModelClass(id,medname,startdate,enddate,days,time,user_id);
+                            imagelistmed.add(medmodelClass);
                             adapter.notifyDataSetChanged();
                         }
                     }
@@ -102,15 +102,14 @@ public class medicineCardList extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("userid",userid);
-                //Log.d("");
                 return map;
             }
         };
 
         mProgressDialog = new ProgressDialog(medicineCardList.this);
-        mProgressDialog.setTitle("Please Wait!!");
+        mProgressDialog.setTitle("Please Wait!");
         //mProgressDialog.setMax(100);
-        mProgressDialog.setMessage("Fetching....");
+        mProgressDialog.setMessage("Fetching...");
         mProgressDialog.setProgressStyle(mProgressDialog.STYLE_SPINNER);
         mProgressDialog.show();
         mProgressDialog.setCancelable(false);

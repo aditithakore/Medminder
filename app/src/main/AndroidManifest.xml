@@ -20,6 +20,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".upcomingmed"
+            android:exported="false" />
+        <activity
+            android:name=".upcoming"
+            android:exported="false" />
+        <activity
             android:name=".medicineCardList"
             android:exported="false" />
         <activity

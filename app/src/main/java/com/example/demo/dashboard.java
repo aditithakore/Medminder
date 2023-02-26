@@ -58,7 +58,7 @@ public class dashboard extends AppCompatActivity {
       imageView2.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              Intent intent2=new Intent(getApplicationContext(),MainActivity.class);
+              Intent intent2=new Intent(getApplicationContext(),upcoming.class);
               intent2.putExtras(frmLogin);
               startActivity(intent2);
               Log.d("data_imgviwe_upcmg","data= "+userid);

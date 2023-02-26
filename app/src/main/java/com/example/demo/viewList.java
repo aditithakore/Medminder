@@ -98,6 +98,9 @@ public class viewList extends AppCompatActivity {
         counter++;
         if(counter==1){
             Intent intent=new Intent(getApplicationContext(),dashboard.class);
+            Intent frmdb=getIntent();
+            String userid=frmdb.getStringExtra("user_id");
+            Log.d("data_vl-db","data= "+userid);
             startActivity(intent);
         }
         else{

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:textDirection="firstStrongLtr"
+    tools:context=".viewList">
+    <TextView
+        android:id="@+id/tv_vl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/poppinsbold"
+        android:gravity="center"
+        android:text="Upcoming"
+        android:textColor="@color/oyster_bay"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="jelly_bean" />
+
+    <Button
+        android:id="@+id/btn_up_med"
+        android:layout_width="176dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="260dp"
+        android:text="View \n Upcoming medcines"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.457" />
+
+    <Button
+        android:id="@+id/btn_up_app"
+        android:layout_width="182dp"
+        android:layout_height="82dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="466dp"
+        android:layout_marginEnd="115dp"
+        android:text="View \n Upcoming Appointment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.394" />
+
+
+    <!--    <com.google.android.material.tabs.TabLayout-->
+    <!--        android:id="@+id/tab1"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        app:tabMode="fixed"-->
+    <!--        app:tabGravity="fill"-->
+    <!--        app:tabIndicatorGravity="stretch"-->
+    <!--        app:tabSelectedTextColor="@color/deep_sapphire"-->
+    <!--        app:tabIndicatorAnimationMode="elastic"-->
+    <!--        app:tabIndicator="@drawable/tab_indicator"/>-->
+
+    <!--    <androidx.viewpager2.widget.ViewPager2-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:id="@+id/vl_viewpager2"/>-->
+
+
+</RelativeLayout>

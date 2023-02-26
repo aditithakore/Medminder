@@ -34,6 +34,10 @@ public class vlMedicineadapter extends RecyclerView.Adapter<ImageViewHolderViewM
 
         final MedModelClass temp = imagelist.get(position);
 
+        holder.medname.setText(temp.getMedName());
+        holder.medtime.setText(temp.getTimeMed());
+
+
 
     }
 

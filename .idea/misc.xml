@@ -12,6 +12,8 @@
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_medicine.xml" value="0.2" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_medicine_card_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_set_reminder.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_upcoming.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_upcomingmed.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/activity_view_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/appointmentcard.xml" value="0.264" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/appointmentlistitem.xml" value="0.27447916666666666" />
@@ -21,8 +23,9 @@
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/fragment_appointment_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/fragment_medicine_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/medcard_view_layout.xml" value="0.264" />
-        <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/medicinecard.xml" value="0.2734375" />
+        <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/medicinecard.xml" value="0.264" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/rv_appointmentlist.xml" value="0.264" />
+        <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/layout/toolbar.xml" value="0.2734375" />
         <entry key="..\:/Users/Aditi/OneDrive/Desktop/demo/app/src/main/res/menu/menu.xml" value="0.2734375" />
         <entry key="..\:/Users/Aditi/demo/app/src/main/res/drawable/background_splashscreen.xml" value="0.121" />
         <entry key="..\:/Users/Aditi/demo/app/src/main/res/drawable/ic_email.xml" value="0.1895" />
