@@ -14,6 +14,17 @@
         <item>5</item>
     </array>
 
+
+    <array name="days">
+        <item>monday</item>
+        <item>tuesday</item>
+        <item>wednesday</item>
+        <item>thursday</item>
+        <item>friday</item>
+        <item>saturday</item>
+        <item>sunday</item>
+    </array>
+
     <array name="medications_shape_array">
         <item>adhesive(s)</item>
         <item>capsule(s)</item>

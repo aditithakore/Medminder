@@ -77,7 +77,7 @@ public class medicineCardList extends AppCompatActivity {
                             String medname = object.getString("med_name");
                             String startdate = object.getString("start_date");
                             String enddate = object.getString("end_date");
-                            String days = object.getString("days");
+                            String days = object.getString("meddays");
                             String time = object.getString("time");
                             String user_id = object.getString("userid");
 
