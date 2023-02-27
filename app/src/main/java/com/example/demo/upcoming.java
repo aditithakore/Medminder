@@ -31,15 +31,15 @@ public class upcoming extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//
-//        btnUpMed.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(upcoming.this,.class);
-//                intent.putExtra("user_id",userid);
-//                startActivity(intent);
-//            }
-//        });
+
+        btnUpApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(upcoming.this,upcomingapp.class);
+                intent.putExtra("user_id",userid);
+                startActivity(intent);
+            }
+        });
 
     }
 
