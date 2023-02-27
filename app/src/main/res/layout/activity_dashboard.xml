@@ -175,7 +175,7 @@
                         android:layout_width="99dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Track Progress"
+                        android:text="History"
                         android:textAlignment="center"
                         android:textColor="@color/deep_sapphire"
                         android:textSize="20sp"

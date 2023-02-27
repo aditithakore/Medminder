@@ -15,9 +15,8 @@ import com.google.android.material.tabs.TabLayout;
 public class viewList extends AppCompatActivity {
 
     Button btnVlMed,btnVlApp;
-    private TabLayout tabLayout;
-    private ViewPager2 viewPager2;
-    //private viewListFragmentAdapter viewListFragmentAdapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +100,7 @@ public class viewList extends AppCompatActivity {
             Intent frmdb=getIntent();
             String userid=frmdb.getStringExtra("user_id");
             Log.d("data_vl-db","data= "+userid);
+            intent.putExtra("user_id",userid);
             startActivity(intent);
         }
         else{
