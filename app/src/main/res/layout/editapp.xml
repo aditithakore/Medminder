@@ -14,47 +14,25 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical">
-
-
 <!--            <androidx.cardview.widget.CardView-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"-->
 <!--                app:cardCornerRadius="4dp"-->
 <!--                app:cardElevation="2dp"-->
 <!--                app:cardUseCompatPadding="true"-->
-<!--                app:contentPadding="16dp">-->
+<!--                app:contentPadding="16dp"-->
+<!--                >-->
 
-<!--                <LinearLayout-->
+<!--                <EditText-->
+<!--                    android:id="@+id/appid"-->
 <!--                    android:layout_width="match_parent"-->
 <!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent">-->
-
-
-
-<!--                        <ImageView-->
-<!--                            android:id="@+id/edit_save"-->
-<!--                            android:layout_width="32dp"-->
-<!--                            android:layout_height="36dp"-->
-<!--                            android:src="@drawable/save"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintHorizontal_bias="0.95"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="1.0" />-->
-
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-
-<!--                </LinearLayout>-->
+<!--                    android:hint="App id:"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:fontFamily="@font/poppinsmedium"-->
+<!--                    android:textColor="@color/deep_sapphire"-->
+<!--                    />-->
 <!--            </androidx.cardview.widget.CardView>-->
-
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -131,7 +109,7 @@
                         android:orientation="horizontal"
                         >
 
-                        <TextView
+                        <EditText
                             android:id="@+id/edit_appoinment_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -145,7 +123,7 @@
                             />
 
 
-                        <TextView
+                        <EditText
                             android:id="@+id/edit_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -163,6 +141,30 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+
+                <Button
+                    android:id="@+id/updateapp"
+                    android:layout_width="146dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/deep_sapphire"
+                    android:text="Update"
+                    android:textColor="@color/oyster_bay"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

@@ -37,13 +37,6 @@ public class dashboard extends AppCompatActivity {
 
         Log.d("data_db","data= "+userid);
 
-
-
-
-
-
-        //Log.d("data","data= "+getIntent().getExtras());
-        //Log.d("data","data= "+bundle.getString("user_id"));
       imageview1.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {

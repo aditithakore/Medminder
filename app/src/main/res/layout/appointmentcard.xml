@@ -112,6 +112,20 @@
                 app:srcCompat="@drawable/remove"
                 tools:layout_editor_absoluteY="140dp" />
 
+            <TextView
+                android:id="@+id/appid"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/rv_docname"
+                android:layout_alignEnd="@+id/edit"
+
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="163dp"
+                android:text="TextView"
+                android:textSize="15sp" />
+
 
         </RelativeLayout>
 

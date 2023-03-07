@@ -28,12 +28,14 @@
 
     <Button
         android:id="@+id/btn_vl_med"
-        android:layout_width="176dp"
-        android:layout_height="70dp"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="245dp"
-        android:text="View \n Medicine List"
+        android:text="View Medicine \n List"
+        android:backgroundTint="@color/deep_sapphire"
+        android:textColor="@color/oyster_bay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.539"
@@ -43,19 +45,20 @@
 
     <Button
         android:id="@+id/btn_vl_app"
-        android:layout_width="182dp"
-        android:layout_height="82dp"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="432dp"
         android:layout_marginEnd="109dp"
+        android:backgroundTint="@color/deep_sapphire"
+        android:textColor="@color/oyster_bay"
         android:text="View Appointment \n List"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_med"
         app:layout_constraintVertical_bias="0.394" />
     <!--    <com.google.android.material.tabs.TabLayout-->
 <!--        android:id="@+id/tab1"-->

@@ -11,14 +11,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
-
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 import com.google.android.material.textfield.TextInputEditText;
 
-
 public class signup extends AppCompatActivity {
-
 
     TextInputEditText textInputEditTextFullname, textInputEditTextUsername, textInputEditTextEmail, textInputEditTextPassword;
     Button buttonSignup;
@@ -86,14 +82,12 @@ public class signup extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
+                            //Starting Write and Read data with URL Creating array for parameters
                             String[] field = new String[4];
                             field[0] = "fullname";
                             field[1] = "username";
                             field[2] = "password";
                             field[3] = "email";
-
                             //Creating array for data
                             String[] data = new String[4];
                             data[0] = fullname;
@@ -109,14 +103,11 @@ public class signup extends AppCompatActivity {
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                         Intent intent= new Intent(getApplicationContext(),login.class);
                                         startActivity(intent);
-                                        //finish();
-                                        //NavUtils.navigateUpTo();
                                     }
                                     else{
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                     }
                                     progressBar.setVisibility(View.GONE);
-                                    //  Log.i("PutData", result);
                                 }
                             }
                             //End Write and Read data with URL

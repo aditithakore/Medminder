@@ -47,24 +47,24 @@
     <Button
         android:id="@+id/btn_med"
         android:layout_width="170dp"
-        android:layout_height="41dp"
-        android:text="Add Medicine"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/deep_sapphire"
+        android:text="Add \n Medicine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.457" />
+        app:layout_constraintVertical_bias="0.425" />
 
     <Button
         android:id="@+id/btn_app"
-        android:layout_width="181dp"
-        android:layout_height="42dp"
-        android:text="Add Appointment"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/deep_sapphire"
+        android:text="Add \n Appointment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_med"
-        app:layout_constraintVertical_bias="0.394" />
+        app:layout_constraintVertical_bias="0.335" />
 </androidx.constraintlayout.widget.ConstraintLayout>

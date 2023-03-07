@@ -2,12 +2,18 @@ package com.example.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -30,18 +36,24 @@ import com.squareup.okhttp.Response;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class appointment extends AppCompatActivity {
 
     private int hour, minute;
     private int year,month,day;
+    long milliseconds;
 //    private OkHttpClient client;
 //    private Response response;
 //    private RequestBody requestBody;
 //    private String strJson,apiUrl="";
 //    private Request request;
+String timeTonotify;
 
     EditText docname,docCon;
     TextView timeselect,date;
@@ -51,7 +63,12 @@ public class appointment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment);
-  //      Log.d("data_addAppointment","Data= "+getIntent().getStringExtra("user_id"));
+
+
+
+
+
+
 
         Intent frmSr=getIntent();
         String userid=frmSr.getStringExtra("user_id");
@@ -112,11 +129,17 @@ public class appointment extends AppCompatActivity {
                                     String result = putData.getResult();
                                     if (result.equals("Appointment added Sucessfully")) {
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), set_reminder.class);
-                                        intent.putExtras(frmSr);
-                                        Log.d("data_addAPPPP","Data= "+userid);
-                                        startActivity(intent);
-                                        finish();
+
+      //                                  milliseconds=millisecond(apDate);
+
+
+
+                                        setAlarm(drname, apDate,apTime);
+//                                        Intent intent = new Intent(getApplicationContext(), set_reminder.class);
+//                                        intent.putExtras(frmSr);
+//                                        Log.d("data_addAPPPP","Data= "+userid);
+//                                        startActivity(intent);
+//                                        finish();
                                     }
 
                                     else{
@@ -125,18 +148,22 @@ public class appointment extends AppCompatActivity {
                                     }
                                 }
                             }
-                            //End Write and Read data with URL
+
                         }
                     });
                 }
-//                else{
-//                    Toast.makeText(getApplicationContext(),"All fields required", Toast.LENGTH_SHORT).show();
-//                }
-            //}
-       // });
 
-    }
+
+
+
+
+            }
+
+
+
         });
+
+
 
 
         timeselect.setOnClickListener(new View.OnClickListener() {
@@ -160,8 +187,87 @@ public class appointment extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-}
 
+
+
+
+
+ createNotificationChannel();
+//        String dateStr=(String) date.getText().toString();
+//        SimpleDateFormat dateFormat=    new SimpleDateFormat("yyyy-MM-dd");
+//        try {
+//            Date datee = dateFormat.parse(dateStr);
+//            milliseconds = datee.getTime();
+//            Log.d("millisec","millisec= "+milliseconds);
+//            // use the milliseconds value as needed
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+
+
+//        Intent intent   = new Intent(getApplicationContext(),AppBroadcastRec.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0,intent,0);
+//        AlarmManager alarmManager=(AlarmManager) getSystemService(ALARM_SERVICE);
+       long curtime=System.currentTimeMillis();
+//
+//        alarmManager.set(AlarmManager.RTC_WAKEUP,curtime+ milliseconds,pendingIntent);
+
+
+
+
+
+    }
+
+    public long millisecond(String date1)
+    {
+
+        //String date_ = date;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        try
+        {
+            Date mDate = sdf.parse(date1);
+            long timeInMilliseconds = mDate.getTime();
+            Log.d("millisec","Date in milli :: " + timeInMilliseconds);
+            //timeInMilliseconds=
+            return timeInMilliseconds;
+        }
+        catch (ParseException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+
+//public void long toMilliSecond(double days){
+//        return (long) (days * 24 * 60 * 60 * 1000);
+//    }
+
+    private  void setAlarm(String docName, String  sec, String time){
+        AlarmManager am=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
+
+        Intent intent= new Intent(getApplicationContext(),AppBroadcastRec.class);
+        intent.putExtra("docname",docName);
+        intent.putExtra("date",sec);
+        intent.putExtra("time",time);
+
+        PendingIntent pendingIntent=PendingIntent.getBroadcast(getApplicationContext(),0,intent,0);
+        String dateandtime= sec+" "+timeTonotify;
+        DateFormat format= new SimpleDateFormat("yyyy/MM/dd hh:mm");
+        try {
+            Log.d("datee ", "date= "+dateandtime);
+            Date date1 = format.parse(dateandtime);
+            Log.d("datee ", "date1= "+date1.getTime());
+            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+            Toast.makeText(getApplicationContext(), "Alaram", Toast.LENGTH_SHORT).show();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     private void showTimePicker() {
         Calendar mCurrentTime = Calendar.getInstance();
@@ -173,46 +279,31 @@ public class appointment extends AppCompatActivity {
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                 hour = selectedHour;
                 minute = selectedMinute;
+                timeTonotify = selectedHour + ":" + selectedMinute;
+
                 timeselect.setText(String.format(Locale.getDefault(), "%d:%d", selectedHour, selectedMinute));
             }
         }, hour, minute, false);
         mTimePicker.setTitle("Select Time");
         mTimePicker.show();
     }
+    public  void createNotificationChannel(){
 
-//    public class GetUserDataRequest extends AsyncTask<Void,Void,Void>{
-//
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            //requestBody= new FormEncodingBuilder().build();
-//            request= new Request.Builder().url(apiUrl).build();
-//
-//            try{
-//                response=client.newCall(request).execute();
-//                            }
-//            catch(IOException e){
-//                e.printStackTrace();
-//            }
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Void unused){
-//            super.onPostExecute(unused);
-//
-//            try {
-//                strJson=response.body().string();
-//                updateUserData(strJson);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//        }
-//    }
-//
-//    private void updateUserData(String strJson){
-//     //   Glide.with(this).load(drname).into()
-//    }
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Appointment Reminder";
+            String des = "This is the reminder notfication";
+            int imp = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("notifyApp", name, imp);
+            channel.setDescription(des);
+
+            NotificationManager notificationManager=getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+
+
 
 
 }
+

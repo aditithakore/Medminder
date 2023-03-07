@@ -3,7 +3,6 @@ package com.example.demo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -11,8 +10,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,15 +22,11 @@ import org.json.JSONObject;
 
 public class login extends AppCompatActivity {
 
-
     TextInputEditText textInputEditTextUsername, textInputEditTextPassword;
     Button buttonLogin;
     TextView textviewSignup;
     ProgressBar progress;
-    CheckBox remember;
     JSONObject reader = null;
-    public static final String  SHARED_PREFS="sharedPrefs";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,44 +38,6 @@ public class login extends AppCompatActivity {
         buttonLogin=findViewById(R.id.buttonLogin);
         textviewSignup = findViewById(R.id.signUpText);
         progress = findViewById(R.id.progress);
-  //     remember=findViewById(R.id.remember);
-
-
-//SharedPreferences preferences=getSharedPreferences("checked",MODE_PRIVATE);
-//    String checkbox= preferences.getString("remember","");
-//if (checkbox.equals("true")){
-//
-//
-//}
-//else if(checkbox.equals("false")){
-//
-//}
-     //   remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
- //           @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if(compoundButton.isChecked()){
-//                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-//                    SharedPreferences.Editor editor=preferences.edit();
-//                    editor.apply();
-//                    Toast.makeText(login.this,"Checked",Toast.LENGTH_SHORT).show();
-//
-//                }
-//                else{
-//                    SharedPreferences preferences= getSharedPreferences("checkbox",MODE_PRIVATE);
-//                    SharedPreferences.Editor editor= preferences.edit();
-//                    editor.putString("remember","false");
-//                    editor.apply();
-//                    Toast.makeText(login.this,"Unchecked",Toast.LENGTH_SHORT).show();
-//
-//
-//                }
-//
-//            }
-//        });
-
-//        rememberMe();
-
-
 
         textviewSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,21 +56,14 @@ public class login extends AppCompatActivity {
                 password = String.valueOf(textInputEditTextPassword.getText());
 
                 if(TextUtils.isEmpty(textInputEditTextUsername.getText().toString())){
-
                     textInputEditTextUsername.setError("UserName is compulsory");
                 }
 
                 if(TextUtils.isEmpty(textInputEditTextPassword.getText().toString())){
-
                     textInputEditTextPassword.setError("Password is compulsory");
                 }
 
-
-
-
                 if (!username.equals("") && !password.equals("")) {
-
-
                     progress.setVisibility(View.VISIBLE);
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.post(new Runnable() {
@@ -149,12 +97,7 @@ public class login extends AppCompatActivity {
                                             Bundle bundle = new Bundle();
                                            String myMessage = reader.getString("user_id");
                                             bundle.putString("user_id", myMessage );
-//                                            AppointmentList appointmentList = new AppointmentList();
-//                                            appointmentList.setArguments(bundle);
-//                                            SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-//                                            SharedPreferences.Editor editor= sharedPreferences.edit();
-//                                            editor.putString("remember","true");
-//                                            editor.apply();
+
                                             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(getApplicationContext(), dashboard.class);
                                             intent.putExtras(bundle);
@@ -162,19 +105,14 @@ public class login extends AppCompatActivity {
                                             finish();
                                         }
                                         else{
-
                                             Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                     catch (Exception e){
                                         System.out.println("Error for Login from here : ");
                                         e.printStackTrace();
-
                                     }
-
-
-                                    progress.setVisibility(View.GONE);
-                                    //  Log.i("PutData", result);
+                                     progress.setVisibility(View.GONE);
                                 }
                             }
                             //End Write and Read data with URL
@@ -188,16 +126,6 @@ public class login extends AppCompatActivity {
         });
 
     }
-
-//    private void rememberMe() {
-//        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-//        String check=sharedPreferences.getString("remember","");
-//        if(check.equals(true)){
-//            Intent intent = new Intent(getApplicationContext(), dashboard.class);
-//            startActivity(intent);
-//
-//        }
-//    }
 
 
     public  String getUserId(){

@@ -14,6 +14,12 @@ public class ModelClass {
         this.userid = userid;
     }
 
+    public String getId() {
+        return id.toString();
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
     public String getDocname() {
         return docname;
     }
