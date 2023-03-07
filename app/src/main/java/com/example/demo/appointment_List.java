@@ -60,10 +60,10 @@ public class appointment_List extends AppCompatActivity {
 
                 imagelist.clear();
                 try {
-                    Log.i("tagconvertstr", "["+response+"]");
+
 
                     JSONObject jsonObject = new JSONObject(response);
-                    Log.i("tagconvertstr", "["+response+"]");
+                    Log.i("jsonobj", "["+response+"]");
                     String success = jsonObject.getString("success");
                     JSONArray jsonArray = jsonObject.getJSONArray("data");
 

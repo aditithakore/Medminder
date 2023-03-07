@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,15 +21,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.skydoves.powerspinner.IconSpinnerAdapter;
-import com.skydoves.powerspinner.IconSpinnerItem;
-import com.skydoves.powerspinner.PowerSpinnerView;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,15 +53,6 @@ public class upcomingmed extends AppCompatActivity {
         userid = frmup.getStringExtra("user_id");
         Log.d("data_upMed", "data= " + userid);
 
-//        spinnerView=findViewById(R.id.weekdays);
-//        List<IconSpinnerItem> iconSpinnerItems = new ArrayList<>();
-//        iconSpinnerItems.add(new IconSpinnerItem("item1",getDrawable(R.drawable.addmed)));
-//
-//        IconSpinnerAdapter iconSpinnerAdapter = new IconSpinnerAdapter(spinnerView);
-//        spinnerView.setSpinnerAdapter(iconSpinnerAdapter);
-//        spinnerView.setItems(iconSpinnerItems);
-//        spinnerView.selectItemByIndex(0);
-//        spinnerView.setLifecycleOwner(this);
 
         rvupmed = findViewById(R.id.rv_upmed);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -108,10 +94,8 @@ public class upcomingmed extends AppCompatActivity {
 
                 imagelist.clear();
                 try {
-                    Log.i("tagconvertstr", "[" + response + "]");
-
                     JSONObject jsonObject = new JSONObject(response);
-                    Log.i("tagconvertstr", "[" + response + "]");
+                    Log.i("JSONobj", "[" + response + "]");
                     String success = jsonObject.getString("success");
                     JSONArray jsonArray = jsonObject.getJSONArray("data");
 

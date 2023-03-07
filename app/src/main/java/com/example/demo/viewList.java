@@ -50,43 +50,6 @@ public class viewList extends AppCompatActivity {
             }
         });
 
-//        tabLayout=findViewById(R.id.tab1);
-//        viewPager2=findViewById(R.id.vl_viewpager2);
-//
-//
-//        tabLayout.addTab(tabLayout.newTab().setText("Medicine"));
-//        tabLayout.addTab(tabLayout.newTab().setText("Appointment"));
-//
-//        FragmentManager fragmentManager= getSupportFragmentManager();
-//        viewListFragmentAdapter=new viewListFragmentAdapter(fragmentManager,getLifecycle());
-//        viewPager2.setAdapter(viewListFragmentAdapter);
-//
-//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                viewPager2.setCurrentItem(tab.getPosition());
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
-//
-//
-//        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-//            @Override
-//            public void onPageSelected(int position) {
-//                tabLayout.selectTab(tabLayout.getTabAt(position));
-//            }
-//        });
-
-
 
 
     }

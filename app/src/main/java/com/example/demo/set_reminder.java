@@ -22,14 +22,8 @@ import java.util.List;
 
 public class set_reminder extends AppCompatActivity {
 
-    //String user_dash_reminder="";
-
-
-
     Button btnMed,btnApp;
-    private TabLayout tabLayout;
-    private ViewPager2 viewPager2;
-//    private MyFragmentAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,81 +60,6 @@ public class set_reminder extends AppCompatActivity {
             }
         });
 
-//
-//        Bundle bundle=new Bundle();
-//        bundle.putString("user_id",userid);
-//        Log.d("data_bundle","data= "+bundle);
-
-
-
-
-
-
-
-//        addmedicine fragment = new addmedicine();
-//
-//        List<String> myData = new ArrayList<>();
-//        myData.add("user_id");
-//
-//        MyFragmentAdapter adapter = new MyFragmentAdapter();
-//        adapter.setData(myData);
-//
-//        getSupportFragmentManager().beginTransaction().add(R.id.LL_sr, fragment).commit();
-
-
-
-
-//        addmedicine fragment = new addmedicine();
-//        Bundle args = new Bundle();
-//        ArrayList<String> data = new ArrayList<>();
-//        data.add(0,"user_id");
-//        args.putStringArrayList(" ",data);
-//        fragment.setArguments(args);
-
-
-
-//        MyFragmentAdapter myFragmentAdapter=new MyFragmentAdapter();
-
-//
-//        tabLayout=findViewById(R.id.tab);
-//        viewPager2=findViewById(R.id.viewpager2);
-//
-//
-//        tabLayout.addTab(tabLayout.newTab().setText("Medicine"));
-//        tabLayout.addTab(tabLayout.newTab().setText("Appointment"));
-//
-//        FragmentManager fragmentManager= getSupportFragmentManager();
-//        adapter=new MyFragmentAdapter(fragmentManager,getLifecycle());
-//        viewPager2.setAdapter(adapter);
-//
-//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                Bundle bundle = getIntent().getExtras();
-//                viewPager2.setCurrentItem(tab.getPosition());
-//                bundle.putString("user_id", userid);
-//
-//
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
-//
-//
-//        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-//            @Override
-//            public void onPageSelected(int position) {
-//                tabLayout.selectTab(tabLayout.getTabAt(position));
-//            }
-//        });
 
     }
 

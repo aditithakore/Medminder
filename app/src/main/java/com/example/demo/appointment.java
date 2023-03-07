@@ -130,16 +130,18 @@ String timeTonotify;
                                     if (result.equals("Appointment added Sucessfully")) {
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
 
-      //                                  milliseconds=millisecond(apDate);
 
-
-
+                                        //for reminder notification
                                         setAlarm(drname, apDate,apTime);
-//                                        Intent intent = new Intent(getApplicationContext(), set_reminder.class);
-//                                        intent.putExtras(frmSr);
-//                                        Log.d("data_addAPPPP","Data= "+userid);
-//                                        startActivity(intent);
-//                                        finish();
+
+
+                                        //gng to next page
+                                        Intent intent = new Intent(getApplicationContext(), set_reminder.class);
+                                        //passing data i.e userid
+                                        intent.putExtras(frmSr);
+                                        Log.d("data_addAPPPP","Data= "+userid);
+                                        startActivity(intent);
+                                        finish();
                                     }
 
                                     else{
@@ -152,15 +154,7 @@ String timeTonotify;
                         }
                     });
                 }
-
-
-
-
-
             }
-
-
-
         });
 
 
@@ -189,28 +183,8 @@ String timeTonotify;
         });
 
 
-
-
-
  createNotificationChannel();
-//        String dateStr=(String) date.getText().toString();
-//        SimpleDateFormat dateFormat=    new SimpleDateFormat("yyyy-MM-dd");
-//        try {
-//            Date datee = dateFormat.parse(dateStr);
-//            milliseconds = datee.getTime();
-//            Log.d("millisec","millisec= "+milliseconds);
-//            // use the milliseconds value as needed
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
 
-
-//        Intent intent   = new Intent(getApplicationContext(),AppBroadcastRec.class);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0,intent,0);
-//        AlarmManager alarmManager=(AlarmManager) getSystemService(ALARM_SERVICE);
-       long curtime=System.currentTimeMillis();
-//
-//        alarmManager.set(AlarmManager.RTC_WAKEUP,curtime+ milliseconds,pendingIntent);
 
 
 
@@ -221,28 +195,20 @@ String timeTonotify;
     public long millisecond(String date1)
     {
 
-        //String date_ = date;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         try
         {
             Date mDate = sdf.parse(date1);
             long timeInMilliseconds = mDate.getTime();
             Log.d("millisec","Date in milli :: " + timeInMilliseconds);
-            //timeInMilliseconds=
             return timeInMilliseconds;
         }
         catch (ParseException e)
         {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return 0;
     }
-
-
-//public void long toMilliSecond(double days){
-//        return (long) (days * 24 * 60 * 60 * 1000);
-//    }
 
     private  void setAlarm(String docName, String  sec, String time){
         AlarmManager am=(AlarmManager)getSystemService(Context.ALARM_SERVICE);

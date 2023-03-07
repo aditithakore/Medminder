@@ -5,24 +5,30 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="130dp">
+        android:layout_height="93dp">
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="53dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="42dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="17dp"
+            android:layout_toStartOf="@+id/appnotifydocname"
             android:src="@drawable/calendar1" />
 
         <TextView
             android:id="@+id/appnotifydocname"
             android:layout_width="wrap_content"
-
+            android:textStyle="bold"
             android:layout_height="39dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="183dp"
-            android:layout_marginBottom="73dp"
+            android:layout_marginEnd="152dp"
+            android:layout_marginBottom="43dp"
             android:fontFamily="@font/poppinsmedium"
             android:text="Doctor name"
             android:textColor="@color/black"
@@ -34,23 +40,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="166dp"
-            android:layout_marginBottom="34dp"
+            android:layout_marginEnd="135dp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/poppinsmedium"
             android:text="Date"
-            android:textStyle="italic"
             android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/Appokbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="27dp"
-            android:layout_marginBottom="18dp"
-            android:text="Button" />
+            android:textSize="20sp"
+            android:textStyle="italic" />
 
 
     </RelativeLayout>

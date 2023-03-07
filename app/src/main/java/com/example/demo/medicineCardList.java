@@ -61,10 +61,9 @@ public class medicineCardList extends AppCompatActivity {
 
                 imagelistmed.clear();
                 try {
-                    Log.i("tagconvertstr", "["+response+"]");
 
                     JSONObject jsonObject = new JSONObject(response);
-                    Log.i("tagconvertstr", "["+response+"]");
+                    Log.d("jsonobj", "["+response+"]");
                     String success = jsonObject.getString("success");
                     JSONArray jsonArray = jsonObject.getJSONArray("data");
 
@@ -108,7 +107,6 @@ public class medicineCardList extends AppCompatActivity {
 
         mProgressDialog = new ProgressDialog(medicineCardList.this);
         mProgressDialog.setTitle("Please Wait!");
-        //mProgressDialog.setMax(100);
         mProgressDialog.setMessage("Fetching...");
         mProgressDialog.setProgressStyle(mProgressDialog.STYLE_SPINNER);
         mProgressDialog.show();
