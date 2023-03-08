@@ -14,25 +14,25 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical">
-<!--            <androidx.cardview.widget.CardView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:cardCornerRadius="4dp"-->
-<!--                app:cardElevation="2dp"-->
-<!--                app:cardUseCompatPadding="true"-->
-<!--                app:contentPadding="16dp"-->
-<!--                >-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp"
+                >
 
-<!--                <EditText-->
-<!--                    android:id="@+id/appid"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:hint="App id:"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:fontFamily="@font/poppinsmedium"-->
-<!--                    android:textColor="@color/deep_sapphire"-->
-<!--                    />-->
-<!--            </androidx.cardview.widget.CardView>-->
+                <TextView
+                    android:id="@+id/appid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="App id:"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/deep_sapphire"
+                    />
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -111,14 +111,15 @@
 
                         <EditText
                             android:id="@+id/edit_appoinment_time"
-                            android:layout_width="wrap_content"
+                            android:layout_width="105dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:textColor="@color/deep_sapphire"
-                            android:hint="10:00"
-                            android:textSize="19sp"
                             android:drawableRight="@drawable/ic_baseline_alarm_add_24"
                             android:gravity="center"
+                            android:hint="10:00"
+                            android:inputType="time"
+                            android:textColor="@color/deep_sapphire"
+                            android:textSize="19sp"
 
                             />
 
@@ -128,7 +129,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="Date"
+                            android:hint="yyyy-mm-dd"
+                            android:inputType="date"
                             android:textColor="@color/deep_sapphire"
                             android:drawableRight="@drawable/calender"
                             android:textSize="19sp"

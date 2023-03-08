@@ -1,7 +1,15 @@
 package com.example.demo;
 
+import static android.content.ContentValues.TAG;
+
+import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +40,7 @@ import java.util.Map;
 public class vlAppointmentadapter extends RecyclerView.Adapter<ImageViewHolderViewData>{
     private Context context;
     private List<ModelClass> imagelist;
-    String update_url="https://ammoniac-initial.000webhostapp.com/updateapp.php";
+
     public vlAppointmentadapter(Context context, List<ModelClass> imagelist){
         this.context=context;
         this.imagelist=imagelist;
@@ -74,24 +82,25 @@ public class vlAppointmentadapter extends RecyclerView.Adapter<ImageViewHolderVi
                  Button save=myview.findViewById(R.id.updateapp);
 
 
-               appid.setText(temp.getId().toString());
+               appid.setText(temp.getId());
                 docname.setText(temp.getDocname());
                 doccon.setText(temp.getDoccon());
                 time.setText(temp.getTime());
                 date.setText(temp.getDate());
 
+                Log.d("appid","id is= "+appid.getText().toString());
                 dialogPlus.show();
                 save.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        StringRequest request = new StringRequest(Request.Method.POST, update_url, new Response.Listener<String>() {
+                        StringRequest request = new StringRequest(Request.Method.POST, "https://ammoniac-initial.000webhostapp.com/updateapp.php", new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
 
                                 if (response.equals("Record updated successfully!!")) {
                                     Toast.makeText(context.getApplicationContext(), "Record updated successfully!!", Toast.LENGTH_LONG).show();
                                     dialogPlus.dismiss();
-                                    Intent intent=new Intent(context,MainActivity.class);
+                                    Intent intent=new Intent(context,appointment_List.class);
                                     context.startActivity(intent);
 
                                 } else {
@@ -128,6 +137,62 @@ public class vlAppointmentadapter extends RecyclerView.Adapter<ImageViewHolderVi
             }
         });
 
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Delete Panel");
+                builder.setMessage("Are you sure you want to remove?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        StringRequest request = new StringRequest(Request.Method.POST, "https://ammoniac-initial.000webhostapp.com/deleteapp.php", new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+
+                                if (response.equals("Record deleted successfully!!")) {
+                                    Toast.makeText(context.getApplicationContext(), "Record deleted successfully!!", Toast.LENGTH_LONG).show();
+
+                                    Intent intent = new Intent(context,appointment_List.class);
+
+                                } else {
+                                    Toast.makeText(context.getApplicationContext(), "Not deleted" + response.toString(), Toast.LENGTH_LONG).show();
+
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(context.getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
+                            }
+                        }) {
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+
+
+                                Map<String, String> map = new HashMap<String, String>();
+                                map.put("apid", temp.getId().toString());
+                                Log.d("id ", "id is "+ temp.getId().toString());
+                                return map;
+                            }
+                        };
+                        RequestQueue requestQueue = Volley.newRequestQueue(context);
+                        requestQueue.add(request);
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.show();
+            }
+        });
     }
 
     @Override

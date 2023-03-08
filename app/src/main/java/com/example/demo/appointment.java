@@ -1,23 +1,16 @@
 package com.example.demo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.TextUtils;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -27,15 +20,10 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.squareup.okhttp.FormEncodingBuilder;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -95,6 +83,9 @@ String timeTonotify;
                 String drname, drCon,apTime,apDate,user_id = null;
                  drname = String.valueOf(docname.getText());
                 drCon = String.valueOf(docCon.getText());
+//                docCon.setFilters(new InputFilter[]
+//                        { new InputFilterMinMax("1", "10")}
+//                );
                 apTime= String.valueOf(timeselect.getText());
                 apDate= String.valueOf(date.getText());
 
@@ -183,7 +174,7 @@ String timeTonotify;
         });
 
 
- createNotificationChannel();
+// createNotificationChannel();
 
 
 
@@ -253,19 +244,19 @@ String timeTonotify;
         mTimePicker.setTitle("Select Time");
         mTimePicker.show();
     }
-    public  void createNotificationChannel(){
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "Appointment Reminder";
-            String des = "This is the reminder notfication";
-            int imp = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("notifyApp", name, imp);
-            channel.setDescription(des);
-
-            NotificationManager notificationManager=getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
+//    public  void createNotificationChannel(){
+//
+//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            CharSequence name = "Appointment Reminder";
+//            String des = "This is the reminder notfication";
+//            int imp = NotificationManager.IMPORTANCE_DEFAULT;
+//            NotificationChannel channel = new NotificationChannel("notifyApp", name, imp);
+//            channel.setDescription(des);
+//
+//            NotificationManager notificationManager=getSystemService(NotificationManager.class);
+//            notificationManager.createNotificationChannel(channel);
+//        }
+//    }
 
 
 

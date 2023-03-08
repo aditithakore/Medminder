@@ -5,7 +5,11 @@ package com.example.demo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -22,8 +26,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class medicine extends AppCompatActivity {
 
@@ -42,6 +51,14 @@ public class medicine extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
 
+
+        Date currentDate=new Date();
+        Log.d("current date","date is= "+currentDate.toString());
+
+        SimpleDateFormat datestr=new SimpleDateFormat("dd");
+        String days=(String)(datestr.format(currentDate));
+
+        Log.d("day is ","day is= "+days);
 
         Intent frmSr=getIntent();
         String userid=frmSr.getStringExtra("user_id");
@@ -192,6 +209,9 @@ public class medicine extends AppCompatActivity {
                     if (putData.onComplete()) {
                         String result = putData.getResult();
                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                           setAlarm(med_name, TextUtils.join(",", days),TextUtils.join(",", time));
+
+
                         Log.d("data_medicine", "data= " + result);
                         Intent intent = new Intent(getApplicationContext(), set_reminder.class);
                         intent.putExtras(frmSr);
@@ -247,13 +267,13 @@ public class medicine extends AppCompatActivity {
                         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                             if(isChecked){
                                 mon=true;
-                                Toast.makeText(medicine.this, "Monday checked status "+isChecked+" "+mon+" "+tue, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(medicine.this, "Monday selected", Toast.LENGTH_SHORT).show();
                                 monday.setBackgroundColor(Color.parseColor("#72D6FF"));
                             }
                             else
                             {
                              mon=false;
-                             Toast.makeText(medicine.this, "Monday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+//                             Toast.makeText(medicine.this, "Monday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
                                 monday.setBackgroundColor(Color.parseColor("#FFFFFF"));
                             }
                         }
@@ -271,7 +291,7 @@ public class medicine extends AppCompatActivity {
                         else
                         {
                             tue=false;
-                            Toast.makeText(medicine.this, "Tuesday checked status  "+isChecked+" "+tue, Toast.LENGTH_SHORT).show();
+                        //      Toast.makeText(medicine.this, "Tuesday checked status  "+isChecked+" "+tue, Toast.LENGTH_SHORT).show();
                             tuesday.setBackgroundColor(Color.parseColor("#FFFFFF"));
                         }
                     }
@@ -283,13 +303,13 @@ public class medicine extends AppCompatActivity {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked){
                             wed=true;
-                            Toast.makeText(medicine.this, "Wednesday checked status "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(medicine.this, "Wednesday selcted", Toast.LENGTH_SHORT).show();
                             wednesday.setBackgroundColor(Color.parseColor("#72D6FF"));
                         }
                         else
                         {
                             wed=false;
-                            Toast.makeText(medicine.this, "Wednesday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(medicine.this, "Wednesday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
                             wednesday.setBackgroundColor(Color.parseColor("#FFFFFF"));
                         }
                     }
@@ -302,13 +322,13 @@ public class medicine extends AppCompatActivity {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked){
                             thurs=true;
-                            Toast.makeText(medicine.this, "Thursday checked status "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(medicine.this, "Thursday selected", Toast.LENGTH_SHORT).show();
                             thursday.setBackgroundColor(Color.parseColor("#72D6FF"));
                         }
                         else
                         {
                             thurs=false;
-                            Toast.makeText(medicine.this, "Thursday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+                        //    Toast.makeText(medicine.this, "Thursday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
                             thursday.setBackgroundColor(Color.parseColor("#FFFFFF"));
                         }
                     }
@@ -320,13 +340,13 @@ public class medicine extends AppCompatActivity {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked){
                             fri=true;
-                            Toast.makeText(medicine.this, "Friday checked status "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(medicine.this, "Friday selected ", Toast.LENGTH_SHORT).show();
                             friday.setBackgroundColor(Color.parseColor("#72D6FF"));
                         }
                         else
                         {
                             fri=false;
-                            Toast.makeText(medicine.this, "Friday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(medicine.this, "Friday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
                             friday.setBackgroundColor(Color.parseColor("#FFFFFF"));
                         }
                     }
@@ -339,13 +359,13 @@ public class medicine extends AppCompatActivity {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked){
                             sat=true;
-                            Toast.makeText(medicine.this, "Saturday checked status "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(medicine.this, "Saturday selected", Toast.LENGTH_SHORT).show();
                             saturday.setBackgroundColor(Color.parseColor("#72D6FF"));
                         }
                         else
                         {
                             sat=false;
-                            Toast.makeText(medicine.this, "Saturday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+                      //      Toast.makeText(medicine.this, "Saturday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
                             saturday.setBackgroundColor(Color.parseColor("#FFFFFF"));
                         }
                     }
@@ -358,13 +378,13 @@ public class medicine extends AppCompatActivity {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked){
                             sun=true;
-                            Toast.makeText(medicine.this, "Sunday checked status "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(medicine.this, "Sunday selected ", Toast.LENGTH_SHORT).show();
                             sunday.setBackgroundColor(Color.parseColor("#72D6FF"));
                         }
                         else
                         {
                             sun=false;
-                            Toast.makeText(medicine.this, "Sunday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(medicine.this, "Sunday checked status  "+isChecked+" "+mon, Toast.LENGTH_SHORT).show();
                             sunday.setBackgroundColor(Color.parseColor("#FFFFFF"));
                         }
                     }
@@ -410,6 +430,32 @@ public class medicine extends AppCompatActivity {
         });
 
     }
+
+    private  void setAlarm(String medname, String  days, String time){
+        AlarmManager am=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
+
+        Intent intent= new Intent(getApplicationContext(),AppBroadcastRec.class);
+        intent.putExtra("medname",medname);
+        intent.putExtra("date",days);
+        intent.putExtra("time",time);
+
+        PendingIntent pendingIntent=PendingIntent.getBroadcast(getApplicationContext(),0,intent,0);
+        String dateandtime= days+" "+time;
+        DateFormat format= new SimpleDateFormat("yyyy/MM/dd hh:mm");
+        try {
+            Log.d("datee ", "date= "+dateandtime);
+            Date date1 = format.parse(dateandtime);
+            Log.d("datee ", "date1= "+date1.getTime());
+            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+            Toast.makeText(getApplicationContext(), "Alaram", Toast.LENGTH_SHORT).show();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
 
     public void methodOnClick(@NonNull View view) {
         boolean checked = ((CheckBox) view).isChecked();

@@ -13,17 +13,19 @@
             android:src="@drawable/medcard"/>
 
         <TextView
+            android:id="@+id/notifyMedName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="246dp"
-            android:layout_marginBottom="99dp"
-            android:text="Reminder"
+            android:layout_marginEnd="190dp"
+            android:layout_marginBottom="92dp"
+            android:text="Medicine name"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/notifyMedTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -36,6 +38,7 @@
 
 
         <Button
+            android:id="@+id/notifyTake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -47,6 +50,7 @@
             android:text="Take" />
 
         <Button
+            android:id="@+id/notifyIgnore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
